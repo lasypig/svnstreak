@@ -25,7 +25,7 @@ include each repository.
 You can define an alias within your `.bashrc` file if you do not want to specify
 a list of repository every time.
 
-## Base on repository
+## Base on
 
-[xudongzheng/gitstreak](https://github.com/xudongzheng/gitstreak) 
+Repository: [xudongzheng/gitstreak](https://github.com/xudongzheng/gitstreak) 
 
