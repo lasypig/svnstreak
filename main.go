@@ -192,7 +192,7 @@ func main() {
 
 	// Print each day of the week.
 	for i := time.Sunday; i <= time.Saturday; i++ {
-		fmt.Printf("%10s ", i.String())
+		fmt.Printf("%5s ", i.String()[:3])
 		for j := 0; j < len(chart); j++ {
 			if len(chart[j][i]) > 0 {
 				fmt.Print(chart[j][i])
