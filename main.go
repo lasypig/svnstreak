@@ -84,9 +84,6 @@ func handlePath(path string) error {
 func main() {
 	// Parse command line flags.
 	flag.Parse()
-	if len(flag.Args()) == 0 {
-		log.Fatal("please specify one (or multiple) repositories")
-	}
 
 	// Determine the graph range. The graph should start at the beginning of a
 	// week on a Sunday.
@@ -95,9 +92,15 @@ func main() {
 	startDate = startDate.AddDate(0, 0, int(time.Sunday-startDate.Weekday()))
 
 	// Count commits for each repository. Use arguments as repository list.
-	for _, value := range flag.Args() {
-		if err := handlePath(value); err != nil {
+	if len(flag.Args()) == 0 {
+		if err := handlePath("."); err != nil {
 			log.Fatal(err)
+		}
+	} else {
+		for _, value := range flag.Args() {
+			if err := handlePath(value); err != nil {
+				log.Fatal(err)
+			}
 		}
 	}
 
